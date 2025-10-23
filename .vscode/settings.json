@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "c:\\Dev\\DA_Backend\\FIRST_DJANGO_PROJECT\\env\\Scripts\\python.exe",
+    "python.defaultInterpreterPath": "c:\\Dev\\DA_Backend\\FIRST_DJANGO_PROJECT\\env\\Scripts\\python.exe",
+    "python.analysis.extraPaths": ["c:\\Dev\\DA_Backend\\FIRST_DJANGO_PROJECT\\env\\Lib\\site-packages"],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.indexing": true
+}
