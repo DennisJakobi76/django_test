@@ -10,5 +10,5 @@ def start_page_view(request):
     return HttpResponse("Hey das hat doch gut funktioniert!")
 
 
-def single_gadget_view(request):
-    return JsonResponse(gadgets[0])
+def single_gadget_view(request, gadget_id):
+    return JsonResponse(gadgets[gadget_id])
