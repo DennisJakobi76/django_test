@@ -29,3 +29,14 @@ def single_gadget_slug_view(request, gadget_slug):
     if not gadget_match:
         raise Http404("Gadget not found by slug")
     return JsonResponse(gadget_match, safe=False)
+
+
+def single_gadget_post_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            # Here you would typically process the data and save it
+            return JsonResponse({"data_received": data}, status=201)
+        except json.JSONDecodeError:
+            return JsonResponse({"response": "Das hat nicht funktioniert"}, status=400)
+    return JsonResponse({"status": "error", "message": "Only POST method is allowed"}, status=405)
