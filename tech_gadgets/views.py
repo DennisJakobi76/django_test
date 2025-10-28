@@ -1,3 +1,4 @@
+from hashlib import new
 from django.shortcuts import redirect
 from django.http import HttpResponse, JsonResponse, HttpResponseNotFound, Http404
 from .dummy_data import gadgets, manufacturers
@@ -5,12 +6,24 @@ import json
 from django.utils.text import slugify
 from django.urls import reverse
 from django.views import View
+from django.views.generic.base import RedirectView
 
 # Create your views here.
 
 
 def start_page_view(request):
     return HttpResponse("Hey das hat doch gut funktioniert!")
+
+
+class RedirectToGadgetView(RedirectView):
+    permanent = False
+    query_string = True
+    pattern_name = 'gadget_slug_url'
+
+    def get_redirect_url(self, *args, **kwargs):
+        new_kwargs = {'gadget_slug': slugify(
+            gadgets[kwargs.get('gadget_id', 0)]['name'])}
+        return super().get_redirect_url(*args, **new_kwargs)
 
 
 def single_gadget_int_view(request, gadget_id):
