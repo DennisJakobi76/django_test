@@ -1,5 +1,5 @@
 from hashlib import new
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse, HttpResponseNotFound, Http404
 from .dummy_data import gadgets, manufacturers
 import json
@@ -12,7 +12,7 @@ from django.views.generic.base import RedirectView
 
 
 def start_page_view(request):
-    return HttpResponse("Hey das hat doch gut funktioniert!")
+    return render(request, 'tech_gadgets/test.html', {'gadget_list': gadgets})
 
 
 class RedirectToGadgetView(RedirectView):
