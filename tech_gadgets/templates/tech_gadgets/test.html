@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Test</title>
-    </head>
-    <body>
-        <h1>Das ist ein Test!</h1>
-        {% for gadget in gadget_list %}
-        <h2>{{ gadget.name }}</h2>
-        <p>Hersteller: {{ gadget.manufacturer }}</p>
-        <p>Preis: {{ gadget.price }}</p>
-        <hr />
-        {% endfor %}
-    </body>
-</html>
+{% extends 'base.html' %} {% block title %}Gadget List{% endblock %} {% block content %}
+<h1>Liste der technischen Gadgets</h1>
+{% for gadget in gadget_list %}
+<h2>{{ gadget.name }}</h2>
+<p>Hersteller: {{ gadget.manufacturer }}</p>
+<p>Preis: {{ gadget.price }}</p>
+<hr />
+{% endfor %} {% endblock %}
